@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+function drawShape(){
+  // get the canvas element using the DOM
+  var canvas = document.getElementById('mycanvas');
+
+  // Make sure we don't execute when canvas isn't supported
+  if (canvas.getContext){
+
+    // use getContext to use the canvas for drawing
+    var ctx = canvas.getContext('2d');
+
+    for (i=0;i<10;i++){
+       ctx.lineWidth = 1+i;
+       ctx.beginPath();
+       ctx.moveTo(5+i*14,5);
+       ctx.lineTo(5+i*14,140);
+       ctx.stroke();
+    }
+
+   ctx.lineWidth = 9
+   //ctx.beginPath();
+   ctx.moveTo( 250,50 );  // horizontal, vertical
+   ctx.lineTo( 90, 5);
+   ctx.stroke();
+
+  } else {
+    alert('You need Safari or Firefox 1.5+ to see this demo.');
+  }
+}
+</script>
+
+
+<script type="application/javascript">
+// Understanding Coordinates  http://www.w3schools.com/html5/html5_canvas.asp
+//The fillRect method above had the parameters (0,0,150,75).
+//This means: Draw a 150x75 rectangle on the canvas, starting at the top left corner (0,0).
+//The canvas' X and Y coordinates are used to position drawings on the canvas.
+
+function draw() {
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+
+  ctx.fillStyle = "rgb(200,0,0)";
+  ctx.fillRect (0, 20, 155, 30); // ?, vertical, length, height
+
+  ctx.fillStyle = "rgb(200,0,0)";
+  ctx.fillRect (20, 55, 100, 30); // ?, vertical, length, height
+
+  //ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+  //ctx.fillRect (30, 30, 55, 50);
+ }
+</script>
+
+</head>
+<!--body onload="drawShape();draw()"-->
+<body onload="draw();">
+   <!--canvas id="mycanvas"></canvas-->
+   <canvas id="canvas" width="300" height="300"></canvas>
+</body>
+</html>
